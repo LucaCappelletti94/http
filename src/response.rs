@@ -9,7 +9,7 @@
 //!
 //! Creating a `Response` to return
 //!
-//! ```
+//! ```rust,dejadoc
 //! use http::{Request, Response, StatusCode};
 //!
 //! fn respond_to(req: Request<()>) -> http::Result<Response<()>> {
@@ -27,7 +27,7 @@
 //!
 //! A simple 404 handler
 //!
-//! ```
+//! ```rust,dejadoc
 //! use http::{Request, Response, StatusCode};
 //!
 //! fn not_found(_req: Request<()>) -> http::Result<Response<()>> {
@@ -39,7 +39,7 @@
 //!
 //! Or otherwise inspecting the result of a request:
 //!
-//! ```no_run
+//! ```rust,no_run,dejadoc
 //! use http::{Request, Response};
 //!
 //! fn get(url: &str) -> http::Result<Response<()>> {

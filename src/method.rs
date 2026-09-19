@@ -7,7 +7,7 @@
 //!
 //! # Examples
 //!
-//! ```
+//! ```rust,dejadoc
 //! use http::Method;
 //!
 //! assert_eq!(Method::GET, Method::from_bytes(b"GET").unwrap());

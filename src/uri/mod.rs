@@ -8,7 +8,7 @@
 //!
 //! # Examples
 //!
-//! ```
+//! ```rust,dejadoc
 //! use http::Uri;
 //!
 //! let uri = "/foo/bar?baz".parse::<Uri>().unwrap();

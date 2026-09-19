@@ -2671,7 +2671,7 @@ impl<'a, T> Entry<'a, T> {
     ///
     /// # Examples
     ///
-    /// ```
+    /// ```rust,dejadoc
     /// # use http::HeaderMap;
     /// let mut map: HeaderMap<u32> = HeaderMap::default();
     ///
@@ -2764,10 +2764,8 @@ impl<'a, T> Entry<'a, T> {
     /// let mut map = HeaderMap::new();
     /// map.try_insert(HOST, "world".parse().unwrap()).unwrap();
     ///
-    /// let res = map.try_entry("host")
-    ///     .unwrap()
-    ///     .or_try_insert_with(|| unreachable!())
-    ///     .unwrap();
+    /// let res = map.entry("host")
+    ///     .or_insert_with(|| unreachable!());
     ///
     ///
     /// assert_eq!(res, "world");
@@ -2792,7 +2790,8 @@ impl<'a, T> Entry<'a, T> {
     /// let mut map = HeaderMap::new();
     ///
     /// let res = map.entry("x-hello")
-    ///     .or_insert_with(|| "world".parse().unwrap());
+    ///     .or_try_insert_with(|| "world".parse().unwrap())
+    ///     .unwrap();
     ///
     /// assert_eq!(res, "world");
     /// ```
@@ -2911,7 +2910,7 @@ impl<'a, T> VacantEntry<'a, T> {
     /// let mut map = HeaderMap::new();
     ///
     /// if let Entry::Vacant(v) = map.entry("x-hello") {
-    ///     v.insert("world".parse().unwrap());
+    ///     v.try_insert("world".parse().unwrap()).unwrap();
     /// }
     ///
     /// assert_eq!(map["x-hello"], "world");
@@ -2937,7 +2936,7 @@ impl<'a, T> VacantEntry<'a, T> {
     /// let mut map = HeaderMap::new();
     ///
     /// if let Entry::Vacant(v) = map.try_entry("x-hello").unwrap() {
-    ///     let mut e = v.try_insert_entry("world".parse().unwrap()).unwrap();
+    ///     let mut e = v.insert_entry("world".parse().unwrap());
     ///     e.insert("world2".parse().unwrap());
     /// }
     ///

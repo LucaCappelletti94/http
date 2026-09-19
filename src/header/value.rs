@@ -343,7 +343,7 @@ impl HeaderValue {
     ///
     /// # Examples
     ///
-    /// ```
+    /// ```rust,dejadoc
     /// # use http::header::HeaderValue;
     /// let mut val = HeaderValue::from_static("my secret");
     ///

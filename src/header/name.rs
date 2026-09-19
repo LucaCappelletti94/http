@@ -1450,7 +1450,7 @@ impl PartialEq<HeaderName> for str {
     ///
     /// # Examples
     ///
-    /// ```
+    /// ```rust,dejadoc
     /// use http::header::CONTENT_LENGTH;
     ///
     /// assert_eq!(CONTENT_LENGTH, "content-length");

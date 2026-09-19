@@ -9,7 +9,7 @@
 //!
 //! Creating a `Request` to send
 //!
-//! ```no_run
+//! ```rust,no_run,dejadoc
 //! use http::{Request, Response};
 //!
 //! let mut request = Request::builder()
@@ -34,7 +34,7 @@
 //!
 //! Inspecting a request to see what was sent.
 //!
-//! ```
+//! ```rust,dejadoc
 //! use http::{Request, Response, StatusCode};
 //!
 //! fn respond_to(req: Request<()>) -> http::Result<Response<()>> {

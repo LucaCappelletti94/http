@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - style
+      - dejadoc
       - test
       - msrv
       - wasm
@@ -36,6 +37,21 @@ jobs:
           components: rustfmt
 
       - run: cargo fmt --all --check
+
+  dejadoc:
+    name: Check Duplicate Doctests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Scan for duplicated doctests
+        uses: LucaCappelletti94/cargo-dejadoc@v1
 
   test:
     name: Test ${{ matrix.rust }}
